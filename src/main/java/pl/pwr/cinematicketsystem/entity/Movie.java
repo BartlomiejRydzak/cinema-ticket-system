@@ -28,7 +28,7 @@ public class Movie {
     private Integer durationMinutes;
 
     @Column(name = "image_url")
-    private String image_url;
+    private String imageUrl;
 
     @OneToMany(mappedBy = "movie")
     private List<Show> shows;

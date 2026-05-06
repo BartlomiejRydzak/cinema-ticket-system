@@ -13,9 +13,9 @@ import java.time.LocalDateTime;
 @Builder
 @Getter
 public class ShowResponse {
-    private Integer id;
     private LocalDateTime date;
-    private Integer room;
-    private Integer movieId;
+    private Integer durationMinutes;
     private String movieTitle;
+    private String description;
+    private String imgUrl;
 }

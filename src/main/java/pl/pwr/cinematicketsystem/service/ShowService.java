@@ -15,6 +15,4 @@ public interface ShowService {
     List<ShowResponse> getAllShows();
 
     ShowResponse mapToResponse(Show show);
-
-    ShowShortResponse mapToShortResponse(Show show);
 }

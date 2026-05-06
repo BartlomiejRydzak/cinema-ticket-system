@@ -50,19 +50,12 @@ public class ShowServiceImpl implements ShowService{
     @Override
     public ShowResponse mapToResponse(Show show) {
         return ShowResponse.builder()
-                .id(show.getId())
                 .date(show.getDate())
-                .room(show.getRoom())
-                .movieId(show.getMovie().getId())
+                .durationMinutes(show.getMovie().getDurationMinutes())
                 .movieTitle(show.getMovie().getTitle())
+                .description(show.getMovie().getDescription())
+                .imgUrl(show.getMovie().getImageUrl())
                 .build();
     }
 
-    @Override
-    public ShowShortResponse mapToShortResponse(Show show) {
-        return ShowShortResponse.builder()
-                .date(show.getDate())
-                .room(show.getRoom())
-                .build();
-    }
 }

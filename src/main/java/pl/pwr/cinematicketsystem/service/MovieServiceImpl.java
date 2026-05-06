@@ -26,7 +26,7 @@ public class MovieServiceImpl implements MovieService{
 
         movie.setTitle(movieRequest.getTitle());
         movie.setDescription(movieRequest.getDescription());
-        movie.setImage_url(movieRequest.getImage_url());
+        movie.setImageUrl(movieRequest.getImageUrl());
         movie.setDurationMinutes(movieRequest.getDurationMinutes());
 
         return movieRepository.save(movie);
@@ -47,7 +47,7 @@ public class MovieServiceImpl implements MovieService{
                 .title(movie.getTitle())
                 .description(movie.getDescription())
                 .durationMinutes(movie.getDurationMinutes())
-                .image_url(movie.getImage_url())
+                .imageUrl(movie.getImageUrl())
                 .shows(
                         movie.getShows() == null ? List.of() :
                         movie.getShows().stream()

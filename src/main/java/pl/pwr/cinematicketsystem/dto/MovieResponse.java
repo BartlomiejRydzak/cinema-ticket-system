@@ -16,6 +16,6 @@ public class MovieResponse {
     private String title;
     private String description;
     private Integer durationMinutes;
-    private String image_url;
+    private String imageUrl;
     private List<ShowShortResponse> shows;
 }
