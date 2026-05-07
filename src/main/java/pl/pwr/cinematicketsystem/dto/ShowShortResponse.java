@@ -9,5 +9,5 @@ import java.time.LocalDateTime;
 @Getter
 public class ShowShortResponse {
     private LocalDateTime date;
-    private Integer room;
+    private Integer roomId;
 }
