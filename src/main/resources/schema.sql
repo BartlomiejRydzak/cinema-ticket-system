@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS room
     id INTEGER,
     name VARCHAR(255),
     PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE IF NOT EXISTS seat
 (
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS seat
     seat_number INTEGER,
     room_id INTEGER,
     PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE IF NOT EXISTS ticket
 (
@@ -57,15 +57,15 @@ CREATE TABLE IF NOT EXISTS ticket
     show_id INTEGER,
     seat_id INTEGER,
     PRIMARY KEY (id)
-)
+);
 
 ALTER TABLE show
-    ADD CONSTRAINT FK_movie FOREIGN KEY (movie_id) REFERENCES movie
+    ADD CONSTRAINT FK_movie FOREIGN KEY (movie_id) REFERENCES movie;
 ALTER TABLE show
-    ADD CONSTRAINT FK_room FOREIGN KEY (room_id) REFERENCES room
+    ADD CONSTRAINT FK_room FOREIGN KEY (room_id) REFERENCES room;
 ALTER TABLE seat
-    ADD CONSTRAINT FK_room FOREIGN KEY (room_id) REFERENCES room
+    ADD CONSTRAINT FK_room FOREIGN KEY (room_id) REFERENCES room;
 ALTER TABLE ticket
-    ADD CONSTRAINT FK_show FOREIGN KEY (show_id) REFERENCES ticket
+    ADD CONSTRAINT FK_show FOREIGN KEY (show_id) REFERENCES show;
 ALTER TABLE ticket
-    ADD CONSTRAINT FK_seat FOREIGN KEY (seat_id) REFERENCES seat
+    ADD CONSTRAINT FK_seat FOREIGN KEY (seat_id) REFERENCES seat;
