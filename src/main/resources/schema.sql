@@ -3,18 +3,21 @@ DROP TABLE IF EXISTS movie CASCADE;
 DROP TABLE IF EXISTS room CASCADE;
 DROP TABLE IF EXISTS seat CASCADE;
 DROP TABLE IF EXISTS ticket CASCADE;
+DROP TABLE IF EXISTS reservation CASCADE;
 
 DROP SEQUENCE IF EXISTS show_seq;
 DROP SEQUENCE IF EXISTS movie_seq;
 DROP SEQUENCE IF EXISTS room_seq;
 DROP SEQUENCE IF EXISTS seat_seq;
 DROP SEQUENCE IF EXISTS ticket_seq;
+DROP SEQUENCE IF EXISTS reservation_seq;
 
 CREATE SEQUENCE show_seq start WITH 1 increment BY 1;
 CREATE SEQUENCE movie_seq start WITH 1 increment BY 1;
 CREATE SEQUENCE room_seq start WITH 1 increment BY 1;
 CREATE SEQUENCE seat_seq start WITH 1 increment BY 1;
 CREATE SEQUENCE ticket_seq start WITH 1 increment BY 1;
+CREATE SEQUENCE reservation_seq start WITH 1 increment BY 1;
 
 CREATE TABLE IF NOT EXISTS show
 (
@@ -56,6 +59,14 @@ CREATE TABLE IF NOT EXISTS ticket
     id INTEGER,
     show_id INTEGER,
     seat_id INTEGER,
+    reservation_id INTEGER,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS reservation
+(
+    id INTEGER,
+    code VARCHAR(20),
     PRIMARY KEY (id)
 );
 
@@ -70,4 +81,6 @@ ALTER TABLE ticket
 ALTER TABLE ticket
     ADD CONSTRAINT FK_seat FOREIGN KEY (seat_id) REFERENCES seat;
 ALTER TABLE ticket
-    ADD CONSTRAINT UC_ticket UNIQUE (show_id, seat_id)
+    ADD CONSTRAINT UC_ticket UNIQUE (show_id, seat_id);
+ALTER TABLE ticket
+    ADD CONSTRAINT FK_reservation FOREIGN KEY (reservation_id) REFERENCES reservation;
