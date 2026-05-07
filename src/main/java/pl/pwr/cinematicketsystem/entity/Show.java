@@ -24,11 +24,14 @@ public class Show {
     @Column(name = "date")
     private LocalDateTime date;
 
-    @Column(name = "room")
-    private Integer room;
-
     @ManyToOne
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
+    @ManyToOne
+    @JoinColumn(name = "room_id")
+    private Room room;
+
+    @OneToMany(mappedBy = "show")
+    private List<Ticket> tickets;
 }
