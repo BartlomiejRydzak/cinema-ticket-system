@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "seat")
 @Getter
@@ -21,5 +23,10 @@ public class Seat {
     @Column(name = "seat_number")
     private Integer seatNumber;
 
+    @ManyToOne
+    @JoinColumn(name = "room_id")
     private Room room;
+
+    @OneToMany(mappedBy = "seat")
+    private List<Ticket> tickets;
 }
