@@ -22,7 +22,7 @@ public class ShowController {
     }
 
     @PostMapping
-    public Show addShow(@RequestBody ShowRequest showRequest){
+    public ShowResponse addShow(@RequestBody ShowRequest showRequest){
         return showService.addShow(showRequest);
     }
 

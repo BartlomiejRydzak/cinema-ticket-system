@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ShowService {
 
-    Show addShow(ShowRequest showRequest);
+    ShowResponse addShow(ShowRequest showRequest);
 
     List<ShowResponse> getAllShows();
 
