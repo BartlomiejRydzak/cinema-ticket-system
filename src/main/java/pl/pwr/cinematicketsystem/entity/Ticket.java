@@ -15,7 +15,11 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TICKET_ID_GENERATOR")
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "show_id")
     private Show show;
 
+    @ManyToOne
+    @JoinColumn(name = "seat_id")
     private Seat seat;
 }
