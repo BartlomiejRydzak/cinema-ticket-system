@@ -10,6 +10,8 @@ import pl.pwr.cinematicketsystem.dto.TicketResponse;
 import pl.pwr.cinematicketsystem.entity.Ticket;
 import pl.pwr.cinematicketsystem.service.TicketService;
 
+import java.sql.SQLException;
+
 @RestController
 @RequestMapping("/tickets")
 public class TicketController {
@@ -22,7 +24,7 @@ public class TicketController {
     }
 
     @PostMapping
-    TicketResponse buyTicket(@RequestBody TicketRequest ticketRequest){
+    TicketResponse buyTicket(@RequestBody TicketRequest ticketRequest) throws SQLException {
         return ticketService.buyTicket(ticketRequest);
     }
 }

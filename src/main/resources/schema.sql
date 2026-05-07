@@ -69,3 +69,5 @@ ALTER TABLE ticket
     ADD CONSTRAINT FK_show FOREIGN KEY (show_id) REFERENCES show;
 ALTER TABLE ticket
     ADD CONSTRAINT FK_seat FOREIGN KEY (seat_id) REFERENCES seat;
+ALTER TABLE ticket
+    ADD CONSTRAINT UC_ticket UNIQUE (show_id, seat_id)
