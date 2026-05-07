@@ -21,16 +21,23 @@ public class MovieServiceImpl implements MovieService{
     }
 
     @Override
-    public Movie addMovie(MovieRequest movieRequest) {
+    public MovieResponse addMovie(MovieRequest movieRequest) {
         Movie movie = new Movie();
 
         movie.setTitle(movieRequest.getTitle());
         movie.setDescription(movieRequest.getDescription());
         movie.setImageUrl(movieRequest.getImageUrl());
         movie.setDurationMinutes(movieRequest.getDurationMinutes());
-
-        return movieRepository.save(movie);
+        Movie newMovie = movieRepository.save(movie);
+        return mapToResponse(newMovie);
     }
+
+    private Integer id;
+    private String title;
+    private String description;
+    private Integer durationMinutes;
+    private String imageUrl;
+    private List<ShowShortResponse> shows;
 
     @Override
     public List<MovieResponse> getAllMovies() {
@@ -53,7 +60,7 @@ public class MovieServiceImpl implements MovieService{
                         movie.getShows().stream()
                                 .map(show -> ShowShortResponse.builder()
                                         .date(show.getDate())
-                                        .room(show.getRoom())
+                                        .roomId(show.getRoom().getId())
                                         .build())
                                 .toList()
                 )

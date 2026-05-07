@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface MovieService {
 
-    Movie addMovie(MovieRequest movieRequest);
+    MovieResponse addMovie(MovieRequest movieRequest);
 
     List<MovieResponse> getAllMovies();
 
