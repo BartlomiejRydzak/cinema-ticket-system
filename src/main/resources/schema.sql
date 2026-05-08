@@ -84,3 +84,5 @@ ALTER TABLE ticket
     ADD CONSTRAINT UC_ticket UNIQUE (show_id, seat_id);
 ALTER TABLE ticket
     ADD CONSTRAINT FK_reservation FOREIGN KEY (reservation_id) REFERENCES reservation;
+ALTER TABLE reservation
+    ADD CONSTRAINT UC_code UNIQUE (code);
