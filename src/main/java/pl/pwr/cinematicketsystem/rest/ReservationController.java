@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.pwr.cinematicketsystem.dto.ReservationRequest;
+import pl.pwr.cinematicketsystem.dto.ReservationResponse;
 import pl.pwr.cinematicketsystem.entity.Reservation;
 import pl.pwr.cinematicketsystem.service.ReservationService;
 
@@ -20,7 +22,7 @@ public class ReservationController {
     }
 
     @PostMapping
-    Reservation addReservation(@RequestBody Reservation reservation){
-        return reservationService.addReservation(reservation);
+    ReservationResponse addReservation(@RequestBody ReservationRequest reservationRequest){
+        return reservationService.addReservation(reservationRequest);
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import pl.pwr.cinematicketsystem.dto.TicketRequest;
 import pl.pwr.cinematicketsystem.dto.TicketResponse;
 import pl.pwr.cinematicketsystem.entity.Ticket;
+import pl.pwr.cinematicketsystem.repository.ReservationRepository;
 import pl.pwr.cinematicketsystem.repository.SeatRepository;
 import pl.pwr.cinematicketsystem.repository.ShowRepository;
 import pl.pwr.cinematicketsystem.repository.TicketRepository;
@@ -17,12 +18,14 @@ public class TicketServiceImpl implements TicketService{
     private TicketRepository ticketRepository;
     private ShowRepository showRepository;
     private SeatRepository seatRepository;
+    private ReservationRepository reservationRepository;
 
     @Autowired
-    public TicketServiceImpl(TicketRepository ticketRepository, ShowRepository showRepository, SeatRepository seatRepository) {
+    public TicketServiceImpl(TicketRepository ticketRepository, ShowRepository showRepository, SeatRepository seatRepository, ReservationRepository reservationRepository) {
         this.ticketRepository = ticketRepository;
         this.showRepository = showRepository;
         this.seatRepository = seatRepository;
+        this.reservationRepository = reservationRepository;
     }
 
     @Override
@@ -32,6 +35,7 @@ public class TicketServiceImpl implements TicketService{
 
             ticket.setShow(showRepository.findById(ticketRequest.getShowId()).orElseThrow(() -> new RuntimeException("Show not found")));
             ticket.setSeat(seatRepository.findById(ticketRequest.getSeatId()).orElseThrow(() -> new RuntimeException("Seat not found")));
+            ticket.setReservation(reservationRepository.findById(ticketRequest.getReservationId()).orElseThrow(() -> new RuntimeException("Reservation not found")));
 
             Ticket newTicket = ticketRepository.save(ticket);
             return mapToResponse(newTicket);
@@ -47,6 +51,7 @@ public class TicketServiceImpl implements TicketService{
                 .id(ticket.getId())
                 .showId(ticket.getShow().getId())
                 .seatId(ticket.getSeat().getId())
+                .reservationId(ticket.getReservation().getId())
                 .build();
     }
 }

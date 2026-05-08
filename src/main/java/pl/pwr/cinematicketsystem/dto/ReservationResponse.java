@@ -5,9 +5,7 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class TicketResponse {
+public class ReservationResponse {
     private Integer id;
-    private Integer showId;
-    private Integer seatId;
-    private Integer reservationId;
+    private String code;
 }

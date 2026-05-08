@@ -2,9 +2,10 @@ package pl.pwr.cinematicketsystem.dto;
 
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
-public class TicketRequest {
+public class ReservationRequest {
     private Integer showId;
-    private Integer seatId;
-    private Integer reservationId;
+    private List<Integer> seatIds;
 }
