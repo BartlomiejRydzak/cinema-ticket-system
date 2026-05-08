@@ -2,6 +2,7 @@ package pl.pwr.cinematicketsystem.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.pwr.cinematicketsystem.dto.SeatResponse;
 import pl.pwr.cinematicketsystem.dto.ShowRequest;
 import pl.pwr.cinematicketsystem.dto.ShowResponse;
 import pl.pwr.cinematicketsystem.entity.Movie;
@@ -29,5 +30,10 @@ public class ShowController {
     @GetMapping
     public List<ShowResponse> getAllShows(){
         return showService.getAllShows();
+    }
+
+    @GetMapping("/{id}/seats")
+    public List<SeatResponse> getSeats(@RequestParam Integer id){
+        return showService.getSeats(id);
     }
 }

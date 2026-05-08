@@ -1,5 +1,6 @@
 package pl.pwr.cinematicketsystem.service;
 
+import pl.pwr.cinematicketsystem.dto.SeatResponse;
 import pl.pwr.cinematicketsystem.dto.ShowRequest;
 import pl.pwr.cinematicketsystem.dto.ShowResponse;
 import pl.pwr.cinematicketsystem.dto.ShowShortResponse;
@@ -15,4 +16,6 @@ public interface ShowService {
     List<ShowResponse> getAllShows();
 
     ShowResponse mapToResponse(Show show);
+
+    List<SeatResponse> getSeats(Integer id);
 }
