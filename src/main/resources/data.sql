@@ -1,0 +1,49 @@
+INSERT INTO movie(id, title, description, duration_minutes, image_url)
+VALUES
+    (1, 'Interstellar',
+     'A team of explorers travel through a wormhole in space.',
+     169,
+     'interstellar.jpg'),
+
+    (2, 'Inception',
+     'A thief enters people dreams to steal secrets.',
+     148,
+     'inception.jpg'),
+
+    (3, 'The Dark Knight',
+     'Batman faces the Joker in Gotham City.',
+     152,
+     'dark_knight.jpg');
+
+
+INSERT INTO room(id, name)
+VALUES
+    (1, 'Room A'),
+    (2, 'Room B');
+
+
+INSERT INTO seat(id, row_number, seat_number, room_id)
+VALUES
+    -- Room A
+    (1, 1, 1, 1),
+    (2, 1, 2, 1),
+    (3, 1, 3, 1),
+    (4, 2, 1, 1),
+    (5, 2, 2, 1),
+    (6, 2, 3, 1),
+
+    -- Room B
+    (7, 1, 1, 2),
+    (8, 1, 2, 2),
+    (9, 1, 3, 2),
+    (10, 2, 1, 2),
+    (11, 2, 2, 2),
+    (12, 2, 3, 2);
+
+
+INSERT INTO show(id, date, movie_id, room_id)
+VALUES
+    (1, '2026-05-10 18:00:00', 1, 1),
+    (2, '2026-05-10 21:00:00', 2, 1),
+    (3, '2026-05-11 19:30:00', 3, 2),
+    (4, '2026-05-11 22:00:00', 1, 2);
