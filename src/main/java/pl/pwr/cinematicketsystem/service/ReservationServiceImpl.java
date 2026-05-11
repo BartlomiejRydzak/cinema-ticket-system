@@ -49,6 +49,7 @@ public class ReservationServiceImpl implements ReservationService{
             ticket.setShow(show);
             ticket.setReservation(reservation);
             ticket.setState(TicketState.INVALID);
+            ticket.setCode("TCK-" + UUID.randomUUID().toString().substring(0, 8));
 
             reservation.addTicket(ticket);
         }
