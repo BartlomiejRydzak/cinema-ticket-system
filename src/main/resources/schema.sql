@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS ticket
     show_id INTEGER,
     seat_id INTEGER,
     reservation_id INTEGER,
+    code VARCHAR(20),
     PRIMARY KEY (id)
 );
 

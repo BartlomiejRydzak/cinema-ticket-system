@@ -30,4 +30,7 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "reservation_id")
     private Reservation reservation;
+
+    @Column(name = "code")
+    private String code;
 }
