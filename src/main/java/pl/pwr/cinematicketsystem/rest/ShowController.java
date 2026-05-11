@@ -33,7 +33,7 @@ public class ShowController {
     }
 
     @GetMapping("/{id}/seats")
-    public List<SeatResponse> getSeats(@RequestParam Integer id){
+    public List<SeatResponse> getSeats(@PathVariable Integer id){
         return showService.getSeats(id);
     }
 }
