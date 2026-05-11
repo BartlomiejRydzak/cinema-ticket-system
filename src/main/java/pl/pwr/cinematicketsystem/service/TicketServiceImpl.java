@@ -69,7 +69,7 @@ public class TicketServiceImpl implements TicketService{
         if (!ticket.getState().equals(TicketState.USED)) {
             LocalDateTime showTime = ticket.getShow().getDate();
             LocalDateTime now = LocalDateTime.now();
-            if (now.isBefore(showTime) && now.isAfter(showTime.minusMinutes(15))) {
+            if (now.isBefore(showTime.plusMinutes(ticket.getShow().getMovie().getDurationMinutes())) && now.isAfter(showTime.minusMinutes(15))) {
                 ticket.setState(TicketState.VALID);
             } else if (now.isAfter(showTime)) {
                 ticket.setState(TicketState.INVALID);
