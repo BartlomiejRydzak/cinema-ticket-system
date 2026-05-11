@@ -5,6 +5,8 @@ DROP TABLE IF EXISTS seat CASCADE;
 DROP TABLE IF EXISTS ticket CASCADE;
 DROP TABLE IF EXISTS reservation CASCADE;
 DROP TABLE IF EXISTS ticket_validator CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS authorities CASCADE;
 
 DROP SEQUENCE IF EXISTS show_seq;
 DROP SEQUENCE IF EXISTS movie_seq;
@@ -74,11 +76,18 @@ CREATE TABLE IF NOT EXISTS reservation
     PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS ticket_validator
+CREATE TABLE IF NOT EXISTS users
 (
-    id INTEGER,
-    login VARCHAR(255),
-    password VARCHAR(255)
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    enabled SMALLINT NOT NULL,
+    PRIMARY KEY (username)
+);
+
+CREATE TABLE IF NOT EXISTS authorities
+(
+    username VARCHAR(50) NOT NULL,
+    authority VARCHAR(50) NOT NULL
 );
 
 ALTER TABLE show
@@ -97,3 +106,7 @@ ALTER TABLE ticket
     ADD CONSTRAINT FK_reservation FOREIGN KEY (reservation_id) REFERENCES reservation;
 ALTER TABLE reservation
     ADD CONSTRAINT UC_code UNIQUE (code);
+ALTER TABLE authorities
+    ADD CONSTRAINT FK_username FOREIGN KEY (username) REFERENCES users;
+ALTER TABLE authorities
+    ADD CONSTRAINT UC_user_role UNIQUE (username, authority);

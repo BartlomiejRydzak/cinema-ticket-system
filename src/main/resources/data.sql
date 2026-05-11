@@ -47,3 +47,11 @@ VALUES
     (2, '2026-05-10 21:00:00', 2, 1),
     (3, '2026-05-11 19:30:00', 3, 2),
     (4, '2026-05-11 22:00:00', 1, 2);
+
+INSERT INTO users(username, password, enabled)
+VALUES
+    ('a', '{noop}p', 1);
+
+INSERT INTO authorities(username, authority)
+VALUES
+    ('a', 'ROLE_TICKET_VALIDATOR');
