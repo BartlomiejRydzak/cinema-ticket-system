@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "ticket_validator")
+@Table(name = "users")
 @Getter
 @Setter
 public class TicketValidator {

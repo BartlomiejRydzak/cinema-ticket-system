@@ -11,4 +11,6 @@ public interface TicketService {
     TicketResponse buyTicket(TicketRequest ticketRequest) throws SQLException;
 
     TicketResponse mapToResponse(Ticket ticket);
+
+    Boolean isValid(String code);
 }
