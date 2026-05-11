@@ -2,6 +2,7 @@ package pl.pwr.cinematicketsystem.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.pwr.cinematicketsystem.dto.ReservationRequest;
 import pl.pwr.cinematicketsystem.dto.ReservationResponse;
 import pl.pwr.cinematicketsystem.entity.Reservation;
@@ -33,6 +34,7 @@ public class ReservationServiceImpl implements ReservationService{
         this.showRepository = showRepository;
     }
 
+    @Transactional
     @Override
     public ReservationResponse addReservation(ReservationRequest reservationRequest) {
         Reservation reservation = new Reservation();
