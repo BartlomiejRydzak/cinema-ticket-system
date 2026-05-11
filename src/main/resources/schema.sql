@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS seat
 CREATE TABLE IF NOT EXISTS ticket
 (
     id INTEGER,
+    state VARCHAR(20),
     show_id INTEGER,
     seat_id INTEGER,
     reservation_id INTEGER,

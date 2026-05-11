@@ -7,6 +7,7 @@ import pl.pwr.cinematicketsystem.dto.ReservationResponse;
 import pl.pwr.cinematicketsystem.entity.Reservation;
 import pl.pwr.cinematicketsystem.entity.Show;
 import pl.pwr.cinematicketsystem.entity.Ticket;
+import pl.pwr.cinematicketsystem.entity.TicketState;
 import pl.pwr.cinematicketsystem.repository.ReservationRepository;
 import pl.pwr.cinematicketsystem.repository.SeatRepository;
 import pl.pwr.cinematicketsystem.repository.ShowRepository;
@@ -47,6 +48,7 @@ public class ReservationServiceImpl implements ReservationService{
             ticket.setSeat(seatRepository.findById(id).orElseThrow(() -> new RuntimeException("Seat not found")));
             ticket.setShow(show);
             ticket.setReservation(reservation);
+            ticket.setState(TicketState.INVALID);
 
             reservation.addTicket(ticket);
         }
