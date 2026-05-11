@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS room CASCADE;
 DROP TABLE IF EXISTS seat CASCADE;
 DROP TABLE IF EXISTS ticket CASCADE;
 DROP TABLE IF EXISTS reservation CASCADE;
+DROP TABLE IF EXISTS ticket_validator CASCADE;
 
 DROP SEQUENCE IF EXISTS show_seq;
 DROP SEQUENCE IF EXISTS movie_seq;
@@ -11,6 +12,7 @@ DROP SEQUENCE IF EXISTS room_seq;
 DROP SEQUENCE IF EXISTS seat_seq;
 DROP SEQUENCE IF EXISTS ticket_seq;
 DROP SEQUENCE IF EXISTS reservation_seq;
+DROP SEQUENCE IF EXISTS ticket_validator_seq;
 
 CREATE SEQUENCE show_seq start WITH 1 increment BY 1;
 CREATE SEQUENCE movie_seq start WITH 1 increment BY 1;
@@ -18,6 +20,7 @@ CREATE SEQUENCE room_seq start WITH 1 increment BY 1;
 CREATE SEQUENCE seat_seq start WITH 1 increment BY 1;
 CREATE SEQUENCE ticket_seq start WITH 1 increment BY 1;
 CREATE SEQUENCE reservation_seq start WITH 1 increment BY 1;
+CREATE SEQUENCE ticket_validator_seq start WITH 1 increment BY 1;
 
 CREATE TABLE IF NOT EXISTS show
 (
@@ -69,6 +72,13 @@ CREATE TABLE IF NOT EXISTS reservation
     id INTEGER,
     code VARCHAR(20),
     PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS ticket_validator
+(
+    id INTEGER,
+    login VARCHAR(255),
+    password VARCHAR(255)
 );
 
 ALTER TABLE show
