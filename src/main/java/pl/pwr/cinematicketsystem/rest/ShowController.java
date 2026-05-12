@@ -1,5 +1,6 @@
 package pl.pwr.cinematicketsystem.rest;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.pwr.cinematicketsystem.dto.SeatResponse;
@@ -27,11 +28,13 @@ public class ShowController {
         return showService.addShow(showRequest);
     }
 
+    @Tag(name = "Viewer")
     @GetMapping
     public List<ShowResponse> getAllShows(){
         return showService.getAllShows();
     }
 
+    @Tag(name = "TicketValidator")
     @GetMapping("/{id}/seats")
     public List<SeatResponse> getSeats(@PathVariable Integer id){
         return showService.getSeats(id);

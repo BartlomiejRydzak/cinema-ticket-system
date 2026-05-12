@@ -1,5 +1,6 @@
 package pl.pwr.cinematicketsystem.rest;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,7 @@ public class ReservationController {
         this.reservationService = reservationService;
     }
 
+    @Tag(name = "Viewer")
     @PostMapping
     ReservationResponse addReservation(@RequestBody ReservationRequest reservationRequest){
         return reservationService.addReservation(reservationRequest);
