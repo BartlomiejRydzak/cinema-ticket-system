@@ -21,12 +21,6 @@ public class TicketValidatorController {
     }
 
     @Tag(name = "TicketValidator")
-    @PostMapping("/login")
-    public TicketValidator login(@RequestBody TicketValidatorRequest ticketValidatorRequest){
-        return ticketValidatorService.login(ticketValidatorRequest);
-    }
-
-    @Tag(name = "TicketValidator")
     @PostMapping("/scan-ticket")
     public void scanTicket(String code){
         ticketValidatorService.scanTicket(code);

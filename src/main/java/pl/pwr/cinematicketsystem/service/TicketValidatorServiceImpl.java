@@ -30,16 +30,6 @@ public class TicketValidatorServiceImpl implements TicketValidatorService{
     }
 
     @Override
-    public TicketValidator login(TicketValidatorRequest ticketValidatorRequest) {
-        TicketValidator ticketValidator = ticketValidatorRepository.findByUsername(ticketValidatorRequest.getUsername());
-        if (ticketValidator.getPassword().equals(ticketValidatorRequest.getPassword()))
-            return ticketValidator;
-        else {
-            return null;
-        }
-    }
-
-    @Override
     public void scanTicket(String code) {
         Ticket ticket = ticketRepository.findByCode(code);
         if (ticketService.isValid(ticket.getCode())){
