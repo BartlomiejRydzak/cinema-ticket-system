@@ -13,4 +13,6 @@ public interface TicketService {
     TicketResponse mapToResponse(Ticket ticket);
 
     Boolean isValid(String code);
+
+    void updateState(Ticket ticket);
 }

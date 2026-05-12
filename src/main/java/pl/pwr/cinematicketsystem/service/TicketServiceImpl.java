@@ -65,15 +65,17 @@ public class TicketServiceImpl implements TicketService{
         return ticket.getState().equals(TicketState.VALID);
     }
 
+    @Override
     public void updateState(Ticket ticket){
-        if (!ticket.getState().equals(TicketState.USED)) {
+        if (!TicketState.USED.equals(ticket.getState())) {
             LocalDateTime showTime = ticket.getShow().getDate();
             LocalDateTime now = LocalDateTime.now();
             if (now.isBefore(showTime.plusMinutes(ticket.getShow().getMovie().getDurationMinutes())) && now.isAfter(showTime.minusMinutes(15))) {
                 ticket.setState(TicketState.VALID);
-            } else if (now.isAfter(showTime)) {
+            } else if (now.isAfter(showTime.plusMinutes(ticket.getShow().getMovie().getDurationMinutes()))) {
                 ticket.setState(TicketState.INVALID);
             }
         }
+        ticketRepository.save(ticket);
     }
 }
