@@ -4,6 +4,6 @@ import lombok.Getter;
 
 @Getter
 public class TicketValidatorRequest {
-    private String login;
+    private String username;
     private String password;
 }
