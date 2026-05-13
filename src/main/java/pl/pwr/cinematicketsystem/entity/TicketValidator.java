@@ -1,15 +1,19 @@
 package pl.pwr.cinematicketsystem.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.type.descriptor.jdbc.SmallIntJdbcType;
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class TicketValidator {
+
     @Id
     @Column(name = "username")
     private String username;

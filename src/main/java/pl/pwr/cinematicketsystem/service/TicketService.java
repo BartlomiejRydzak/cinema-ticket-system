@@ -1,12 +1,12 @@
 package pl.pwr.cinematicketsystem.service;
 
+import java.sql.SQLException;
 import pl.pwr.cinematicketsystem.dto.TicketRequest;
 import pl.pwr.cinematicketsystem.dto.TicketResponse;
 import pl.pwr.cinematicketsystem.entity.Ticket;
 
-import java.sql.SQLException;
-
 public interface TicketService {
+    Ticket getTicketByCode(String code);
 
     TicketResponse buyTicket(TicketRequest ticketRequest) throws SQLException;
 

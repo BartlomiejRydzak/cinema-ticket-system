@@ -1,34 +1,27 @@
 package pl.pwr.cinematicketsystem.rest;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.pwr.cinematicketsystem.dto.TicketValidatorRequest;
 import pl.pwr.cinematicketsystem.dto.TicketValidatorResponse;
-import pl.pwr.cinematicketsystem.entity.TicketValidator;
-import pl.pwr.cinematicketsystem.repository.TicketValidatorRepository;
 import pl.pwr.cinematicketsystem.service.TicketValidatorService;
 
 @RestController
 @RequestMapping("/ticket-validators")
+@RequiredArgsConstructor
 public class TicketValidatorController {
 
-    private TicketValidatorService ticketValidatorService;
-
-    @Autowired
-    public TicketValidatorController(TicketValidatorService ticketValidatorService) {
-        this.ticketValidatorService = ticketValidatorService;
-    }
+    private final TicketValidatorService ticketValidatorService;
 
     @Tag(name = "TicketValidator")
     @PostMapping("/scan-ticket")
-    public void scanTicket(String code){
+    public void scanTicket(@RequestParam String code) {
         ticketValidatorService.scanTicket(code);
     }
 
     @Tag(name = "TicketValidator")
     @GetMapping("/info")
-    public TicketValidatorResponse getInfo(String code){
+    public TicketValidatorResponse getInfo(@RequestParam String code) {
         return ticketValidatorService.getInfo(code);
     }
 }

@@ -1,20 +1,32 @@
 package pl.pwr.cinematicketsystem.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "movie")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Movie {
 
     @Id
-    @SequenceGenerator(name = "MOVIE_ID_GENERATOR", sequenceName = "MOVIE_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MOVIE_ID_GENERATOR")
+    @SequenceGenerator(
+        name = "MOVIE_ID_GENERATOR",
+        sequenceName = "MOVIE_SEQ",
+        allocationSize = 1
+    )
+    @GeneratedValue(
+        strategy = GenerationType.SEQUENCE,
+        generator = "MOVIE_ID_GENERATOR"
+    )
     @Column(name = "id")
     private Integer id;
 
