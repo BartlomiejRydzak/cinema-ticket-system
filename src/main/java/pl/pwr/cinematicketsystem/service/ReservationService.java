@@ -5,6 +5,7 @@ import pl.pwr.cinematicketsystem.dto.ReservationResponse;
 import pl.pwr.cinematicketsystem.entity.Reservation;
 
 public interface ReservationService {
-    ReservationResponse addReservation(ReservationRequest reservationRequest);
+    Reservation getReservationById(Integer id);
 
+    ReservationResponse addReservation(ReservationRequest reservationRequest);
 }

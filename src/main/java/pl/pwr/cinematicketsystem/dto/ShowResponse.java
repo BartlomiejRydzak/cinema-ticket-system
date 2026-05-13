@@ -1,18 +1,13 @@
 package pl.pwr.cinematicketsystem.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
-import pl.pwr.cinematicketsystem.entity.Movie;
-
-import java.time.LocalDateTime;
 
 @Builder
 @Getter
 public class ShowResponse {
+
     private LocalDateTime date;
     private Integer durationMinutes;
     private String movieTitle;
