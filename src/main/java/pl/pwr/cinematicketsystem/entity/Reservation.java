@@ -1,6 +1,7 @@
 package pl.pwr.cinematicketsystem.entity;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,7 +32,7 @@ public class Reservation {
     private String code;
 
     @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
-    private List<Ticket> tickets;
+    private List<Ticket> tickets = new ArrayList<>();
 
     public void addTicket(Ticket ticket) {
         tickets.add(ticket);
