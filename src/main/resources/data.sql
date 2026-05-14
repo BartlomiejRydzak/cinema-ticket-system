@@ -56,3 +56,11 @@ VALUES
 INSERT INTO authorities(username, authority)
 VALUES
     ('a', 'ROLE_TICKET_VALIDATOR');
+
+-- Ensure sequences start after inserted IDs to avoid duplicate key errors
+SELECT setval('movie_seq', COALESCE((SELECT MAX(id) FROM movie), 1), true);
+SELECT setval('room_seq', COALESCE((SELECT MAX(id) FROM room), 1), true);
+SELECT setval('seat_seq', COALESCE((SELECT MAX(id) FROM seat), 1), true);
+SELECT setval('show_seq', COALESCE((SELECT MAX(id) FROM show), 1), true);
+SELECT setval('ticket_seq', COALESCE((SELECT MAX(id) FROM ticket), 1), true);
+SELECT setval('reservation_seq', COALESCE((SELECT MAX(id) FROM reservation), 1), true);
